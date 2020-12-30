@@ -13,10 +13,5 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   data:
-  - {fileID: 11400000, guid: 308201543abc93b44a19101512d8d508, type: 2}
-  - {fileID: 11400000, guid: d090f030c77f7e64089913f6cddaa39b, type: 2}
-  - {fileID: 11400000, guid: 538d8d408f99e3d4b81846389d93238a, type: 2}
-  - {fileID: 11400000, guid: b0e85a74ab5e191409366485f26b2928, type: 2}
-  - {fileID: 11400000, guid: 49aafc3c94e4a024badad019fcfb24d6, type: 2}
-  - {fileID: 11400000, guid: 77c8263e20a8b714590eba68a3c0f153, type: 2}
-  - {fileID: 11400000, guid: 9b31e3aec8c23e74cbd59cd3241c4ae7, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
