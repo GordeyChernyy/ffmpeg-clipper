@@ -16,6 +16,7 @@ jobs:
         git branch -d package
         git subtree split -P "$PKG_ROOT" -b package
         git checkout package
+        git commit -am "update samples"
         git push -f -u origin package
       env:
         PKG_ROOT: Assets/ffmpeg-clipper
