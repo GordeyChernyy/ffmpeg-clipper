@@ -1,0 +1,17 @@
+{
+  "name": "com.synestheticecho.ffmpeg-clipper",
+  "version": "0.0.1",
+  "displayName": "ffmpeg Clipper",
+  "description": "2019.4",
+  "dependencies": {},
+  "keywords": [
+    "video",
+    "capture",
+    "image"
+  ],
+  "author": {
+    "name": "Synesthetic Echo LLC",
+    "email": "hello@synestheticecho.com",
+    "url": "http://www.synestheticecho.com"
+  }
+}
