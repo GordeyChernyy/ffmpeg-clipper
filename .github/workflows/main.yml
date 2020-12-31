@@ -1,28 +1,22 @@
-name: PackageSplitter
+name: Main
 on:
   push:
     branches:
     - main
 jobs:
   split-upm:
-    name: split upm branch (force)
-    runs-on: self-hosted
+    name: split package
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - name: split package branch
+    - name: split upm branch
       run: |
-        git branch -d package &> /dev/null || echo upm package not found
+        git branch -d package &> /dev/null || echo package branch not found
         git subtree split -P "$PKG_ROOT" -b package
         git checkout package
-        if [[ -d "Samples" ]]; then
-          git mv Samples Samples~
-          rm -f Samples.meta
-          git config --global user.name 'github-bot'
-          git config --global user.email 'github-bot@users.noreply.github.com'
-          git commit -am "Fix samples folder"
-        fi
+        git commit -am "Fix samples folder"
         git push -f -u origin package
       env:
         PKG_ROOT: Assets/ffmpeg-clipper
