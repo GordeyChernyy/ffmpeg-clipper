@@ -13,8 +13,9 @@ jobs:
         fetch-depth: 0
     - name: split package branch
       run: |
-        git branch -d package &> /dev/null || echo upm package not found
+        git branch -d package
         git subtree split -P "$PKG_ROOT" -b package
+        git checkout package
         git push -f -u origin package
       env:
         PKG_ROOT: Assets/ffmpeg-clipper
