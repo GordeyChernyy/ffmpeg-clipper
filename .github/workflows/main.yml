@@ -16,9 +16,13 @@ jobs:
         git branch -d package &> /dev/null || echo package branch not found
         git subtree split -P "$PKG_ROOT" -b package
         git checkout package
-        git config --global user.name 'github-bot'
-        git config --global user.email 'github-bot@users.noreply.github.com'
-        git commit -am "Fix samples folder"
-        git push -f -u origin package
+        if [[ -d "Samples" ]]; then
+          git mv Samples Samples~
+          rm -f Samples.meta
+          git config --global user.name 'github-bot'
+          git config --global user.email 'github-bot@users.noreply.github.com'
+          git commit -am "Fix samples folder"
+        fi
+        git push -f -u origin upm
       env:
         PKG_ROOT: Assets/ffmpeg-clipper
