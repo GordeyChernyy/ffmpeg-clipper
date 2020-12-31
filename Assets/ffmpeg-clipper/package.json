@@ -13,5 +13,11 @@
     "name": "Synesthetic Echo LLC",
     "email": "hello@synestheticecho.com",
     "url": "http://www.synestheticecho.com"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "Basic Settings",
+      "path": "Samples~/BasicSettings"
+    }
+  ]
 }
