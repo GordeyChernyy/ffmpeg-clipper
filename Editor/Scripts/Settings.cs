@@ -6,7 +6,13 @@ namespace ffmpegClipper
     [CreateAssetMenu(menuName = "ffmpeg Clipper/Settings")]
     public class Settings : ScriptableObject
     {
-        public List<ClipperArgs> data = new List<ClipperArgs>();
+        [System.Serializable]
+        public class ArgsData
+        {
+            public List<ClipperArgs> data;
+        }
+
+        public List<ArgsData> passes = new List<ArgsData>();
 
         public string DebugArgs
         {
@@ -14,58 +20,50 @@ namespace ffmpegClipper
             {
                 string result = "";
 
-                foreach (var d in data)
+                foreach (var pass in passes)
                 {
-                    result += d.Args + "\n";
-                }
-
-                return result;
-            }
-        }
-
-        public string StartArgs
-        {
-            get
-            {
-                string result = "";
-
-                foreach (var d in data)
-                {
-                    result += d.Args + " ";
-                }
-
-                return result;
-            }
-        }
-
-        public string StopArgs
-        {
-            get
-            {
-                string result = "";
-
-                foreach (var d in data)
-                {
-                    if(d is Path path)
+                    foreach(var data in pass.data)
                     {
-                        result = d.Args;
+                        result += data.Args + "\n";
+                    }
+                    result += "&& ";
+                }
+
+                return result;
+            }
+        }
+
+        public string Args
+        {
+            get
+            {
+                string result = "";
+
+                foreach (var pass in passes)
+                {
+                    foreach (var data in pass.data)
+                    {
+                        result += data.Args + " ";
                     }
                 }
-
                 return result;
             }
         }
+
 
         public List<IClipperListener> ClipperListeners
         {
             get
             {
                 List<IClipperListener> listeners = new List<IClipperListener>();
-                foreach (var d in data)
+                foreach (var pass in passes)
                 {
-                    if (d is IClipperListener listener)
+                    foreach(var data in pass.data)
                     {
-                        listeners.Add(listener);
+                        if (data is IClipperListener listener)
+                        {
+                            listeners.Add(listener);
+                        }
                     }
                 }
                 return listeners;

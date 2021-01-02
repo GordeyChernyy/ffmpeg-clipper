@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ffmpegClipper
 {
-    class ConsoleAppManager
+    public class ConsoleAppManager
     {
         private readonly string appName;
         private readonly Process process = new Process();
