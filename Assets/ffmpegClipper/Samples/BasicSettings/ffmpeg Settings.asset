@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f15d7289aa0ac1149a6cc05506ab698a, type: 3}
+  m_Name: ffmpeg Settings
+  m_EditorClassIdentifier: 
+  passes:
+  - data:
+    - {fileID: 11400000, guid: ef3483a282b6b88488f8f07bde6f3212, type: 2}
+    - {fileID: 11400000, guid: c44d1858f8ea0f448b6338619c9ed9d0, type: 2}
+    - {fileID: 11400000, guid: 3df7a2ff062865943aefe037ab4592d4, type: 2}
+    - {fileID: 11400000, guid: 10a4498110223f54d97ad7458cdbe4b8, type: 2}
+    - {fileID: 11400000, guid: 5ed96be1ae0b6e64d99fcc507a89f5fc, type: 2}
+    - {fileID: 11400000, guid: ef861ee57dbdc2b4bb74dd2cd6d67be4, type: 2}
+    - {fileID: 11400000, guid: 3647e06f5aaa7cb4194892b1868d89b5, type: 2}

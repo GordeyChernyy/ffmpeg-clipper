@@ -14,37 +14,70 @@ namespace ffmpegClipper
 {
     public class Clipper : ScriptableObject
     {
-        public Settings settings;
+        [System.Serializable]
+        public class Console
+        {
+            public string name;
 
-        ConsoleAppManager appManager;
+            public Settings settings;
+            public ConsoleAppManager appManager;
 
+            public string exit;
+
+            Console next;
+
+            public void Init(Console next)
+            {
+                this.next = next;
+                appManager = new ConsoleAppManager(name);
+            }
+
+            private void ProcessExited(object sender, EventArgs e)
+            {
+                Debug.Log("ProcessExited " + name);
+                if (next!=null) next.StartCapture();
+            }
+
+            public void StopCapture()
+            {
+                Debug.Log("StopCapture " + name);
+                appManager.Write(exit);
+                foreach (var l in settings.ClipperListeners) l.OnStopCapture();
+            }
+
+            public void StartCapture()
+            {
+                Debug.Log("StartCapture " + name);
+                string[] allArgs = new string[] { settings.Args };
+                appManager.ExecuteAsync(allArgs);
+                appManager.ProcessExited += ProcessExited;
+                foreach (var l in settings.ClipperListeners) l.OnStartCapture();
+            }
+        }
+
+        public List<Console> consoles = new List<Console>();
+
+        
         public Clipper()
         {
-            appManager = new ConsoleAppManager("ffmpeg");
+           
         }
 
         public void StartCapture()
         {
-            StartCapture(settings.StartArgs, settings.ClipperListeners);
+            int i = 0;
+            foreach(var c in consoles)
+            {
+                c.Init(i < consoles.Count -1 ? consoles[i+1] : null);
+                i++;
+            }
+            consoles[0].StartCapture();
         }
 
         public void StopCapture()
         {
-            StopCapture(settings.StopArgs, settings.ClipperListeners);
+            consoles[0].StopCapture();
         }
 
-        public void StopCapture(string args, List<IClipperListener> listeners)
-        {
-            appManager.Write("q");
-            Thread.Sleep(2000);
-            foreach (var l in listeners) l.OnStopCapture();
-        }
-
-        public void StartCapture(string args, List<IClipperListener> listeners)
-        {
-            string[] allArgs = new string[] {args};
-            appManager.ExecuteAsync(allArgs);
-            foreach (var l in listeners) l.OnStartCapture();
-        }
     }
 }
