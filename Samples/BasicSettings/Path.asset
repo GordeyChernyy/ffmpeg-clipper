@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7feace4e14e106740ae3dbc2d0e1cb58, type: 3}
+  m_Name: Path
+  m_EditorClassIdentifier: 
+  CurFileName: STMO-VR
+  pathData:
+  - name: Switcher
+    majorVersion: 2
+    minorVersion: 15
+  - name: Slider
+    majorVersion: 0
+    minorVersion: 2
+  - name: STMO-VR
+    majorVersion: 0
+    minorVersion: 12
+  - name: STMO
+    majorVersion: 0
+    minorVersion: 3
+  path: /../ScreenCaptures
+  videoFormat: 2
