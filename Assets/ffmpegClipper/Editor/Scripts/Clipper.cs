@@ -12,13 +12,25 @@ using Debug = UnityEngine.Debug;
 
 namespace ffmpegClipper
 {
-    public class Clipper
+    public class Clipper : ScriptableObject
     {
+        public Settings settings;
+
         ConsoleAppManager appManager;
 
         public Clipper()
         {
             appManager = new ConsoleAppManager("ffmpeg");
+        }
+
+        public void StartCapture()
+        {
+            StartCapture(settings.StartArgs, settings.ClipperListeners);
+        }
+
+        public void StopCapture()
+        {
+            StopCapture(settings.StopArgs, settings.ClipperListeners);
         }
 
         public void StopCapture(string args, List<IClipperListener> listeners)
@@ -27,7 +39,6 @@ namespace ffmpegClipper
             Thread.Sleep(2000);
             foreach (var l in listeners) l.OnStopCapture();
         }
-
 
         public void StartCapture(string args, List<IClipperListener> listeners)
         {

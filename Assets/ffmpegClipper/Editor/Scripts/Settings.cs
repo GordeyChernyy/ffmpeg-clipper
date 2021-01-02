@@ -4,21 +4,9 @@ using UnityEngine;
 namespace ffmpegClipper
 {
     [CreateAssetMenu(menuName = "ffmpeg Clipper/Settings")]
-    class Settings : ScriptableObject
+    public class Settings : ScriptableObject
     {
         public List<ClipperArgs> data = new List<ClipperArgs>();
-
-        Clipper clipper = new Clipper();
-
-        public void StartCapture()
-        {
-            clipper.StartCapture(StartArgs, ClipperListeners);
-        }
-
-        public void StopCapture()
-        {
-            clipper.StopCapture(StopArgs, ClipperListeners);
-        }
 
         public string DebugArgs
         {
