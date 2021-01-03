@@ -25,4 +25,4 @@ jobs:
         fi
         git push -f -u origin package
       env:
-        PKG_ROOT: Assets/ffmpeg-clipper
+        PKG_ROOT: Assets/ffmpegClipper
