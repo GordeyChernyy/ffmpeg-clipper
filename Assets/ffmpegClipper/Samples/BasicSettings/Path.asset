@@ -22,7 +22,7 @@ MonoBehaviour:
     minorVersion: 2
   - name: STMO-VR
     majorVersion: 0
-    minorVersion: 28
+    minorVersion: 30
   - name: STMO
     majorVersion: 0
     minorVersion: 3

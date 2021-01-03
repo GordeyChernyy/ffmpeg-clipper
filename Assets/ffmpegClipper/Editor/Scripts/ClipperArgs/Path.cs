@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -36,6 +37,8 @@ namespace ffmpegClipper {
         public string path = "/../ScreenCaptures";
         public VideoFormat videoFormat;
 
+        private string _filePath;
+        public string FilePath => _filePath;
 
         TrackedPathData CurData
         {
@@ -61,18 +64,23 @@ namespace ffmpegClipper {
 
         public void IncrementVersion()
         {
+            Debug.Log("IncrementVersion");
             CurData.IncrementVersion();
             EditorUtility.SetDirty(this);
         }
 
-        public void OnStartCapture()
+        public void OnStart()
         {
             
         }
 
-        public void OnStopCapture()
+        public void OnInterrupt()
         {
-            Application.OpenURL(Args);
+            
+        }
+
+        public void OnRunnerComplete()
+        {
             IncrementVersion();
         }
 
@@ -95,8 +103,9 @@ namespace ffmpegClipper {
 
                 string fullPath = System.IO.Path.GetFullPath(stringPath);
 
-           
-                return $"{fullPath}\\{CurData.name}_v{CurData.majorVersion}.{CurData.minorVersion}.{videoFormat.ToString()}";
+                _filePath = $"{fullPath}\\{CurData.name}_v{CurData.majorVersion}.{CurData.minorVersion}.{videoFormat.ToString()}";
+
+                return _filePath;
             }
         }
 
