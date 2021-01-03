@@ -2,7 +2,8 @@
 {
     public interface IClipperListener
     {
-        void OnStartCapture();
-        void OnStopCapture();
+        void OnStart();
+        void OnInterrupt();
+        void OnRunnerComplete();
     }
 }

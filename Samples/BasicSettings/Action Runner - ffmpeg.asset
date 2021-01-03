@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa34cf4072e05fb478b6437fc2d91982, type: 3}
-  m_Name: ffmpegClipper
+  m_Script: {fileID: 11500000, guid: 221f9c7b30776ba47b587e2113420b88, type: 3}
+  m_Name: Action Runner - ffmpeg
   m_EditorClassIdentifier: 
-  consoles:
+  actionItems:
   - name: ffmpeg
-    settings: {fileID: 11400000, guid: 69a85804545e8cd4bb118c287ae58dd6, type: 2}
-    exit: q
+    action: {fileID: 11400000, guid: aa3d7e14bf07d8241acbefa93d86572d, type: 2}
+    interruptKey: q
   - name: cmd
-    settings: {fileID: 0}
-    exit: 
+    action: {fileID: 11400000, guid: 3f81392aed77eaa4bb0538de217979bc, type: 2}
+    interruptKey: 

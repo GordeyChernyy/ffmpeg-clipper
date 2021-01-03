@@ -14,70 +14,41 @@ namespace ffmpegClipper
 {
     public class Clipper : ScriptableObject
     {
-        [System.Serializable]
-        public class Console
+        public ActionRunner actionRunner;
+
+        internal void Start()
         {
-            public string name;
+            actionRunner.Start();
+        }
 
-            public Settings settings;
-            public ConsoleAppManager appManager;
+        internal void Interrupt()
+        {
+            actionRunner.Interrupt();
+        }
 
-            public string exit;
-
-            Console next;
-
-            public void Init(Console next)
-            {
-                this.next = next;
-                appManager = new ConsoleAppManager(name);
-            }
-
-            private void ProcessExited(object sender, EventArgs e)
-            {
-                Debug.Log("ProcessExited " + name);
-                if (next!=null) next.StartCapture();
-            }
-
-            public void StopCapture()
-            {
-                Debug.Log("StopCapture " + name);
-                appManager.Write(exit);
-                foreach (var l in settings.ClipperListeners) l.OnStopCapture();
-            }
-
-            public void StartCapture()
-            {
-                Debug.Log("StartCapture " + name);
-                string[] allArgs = new string[] { settings.Args };
-                appManager.ExecuteAsync(allArgs);
-                appManager.ProcessExited += ProcessExited;
-                foreach (var l in settings.ClipperListeners) l.OnStartCapture();
+        public string Args
+        {
+            get {
+                string args = "";
+                foreach (var a in actionRunner.actionItems)
+                {
+                    args += a.action.Args;
+                }
+                return args;
             }
         }
 
-        public List<Console> consoles = new List<Console>();
-
-        
-        public Clipper()
+        public string DebugArgs
         {
-           
-        }
-
-        public void StartCapture()
-        {
-            int i = 0;
-            foreach(var c in consoles)
+            get
             {
-                c.Init(i < consoles.Count -1 ? consoles[i+1] : null);
-                i++;
+                string args = "";
+                foreach (var a in actionRunner.actionItems)
+                {
+                    args += a.action.DebugArgs;
+                }
+                return args;
             }
-            consoles[0].StartCapture();
         }
-
-        public void StopCapture()
-        {
-            consoles[0].StopCapture();
-        }
-
     }
 }

@@ -24,7 +24,7 @@ namespace ffmpegClipper
             IntPtr ptr = new IntPtr(256);
 
             FindOrCreateSettings();
-           // if (clipper != null) Debug.Log($"Start : {clipper.settings.DebugArgs.ToString()}");
+            if (clipper != null) Debug.Log($"{clipper.DebugArgs.ToString()}");
         }
 
         [MenuItem("ffmpegClipper/Debug Args")]
@@ -33,7 +33,7 @@ namespace ffmpegClipper
             IntPtr ptr = new IntPtr(256);
 
             FindOrCreateSettings();
-            //if (clipper != null) Debug.Log($"Start : {clipper.settings.Args.ToString()}");
+            if (clipper != null) Debug.Log($"{clipper.Args.ToString()}");
         }
 
         [MenuItem("ffmpegClipper/Start")]
@@ -42,14 +42,14 @@ namespace ffmpegClipper
             FindOrCreateSettings();
 
             if (clipper!=null) Debug.Log($"Start : {clipper.name}");
-            clipper.StartCapture();
+            clipper.Start();
         }
 
         [MenuItem("ffmpegClipper/Stop")]
         private static void Stop()
         {
             if (clipper != null) Debug.Log($"Stop : {clipper.name}");
-            clipper.StopCapture();
+            clipper.Interrupt();
         }
 
         [MenuItem("ffmpegClipper/GitHub")]
