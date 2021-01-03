@@ -1,2 +1,2 @@
 # Installation
-https://github.com/GordeyChernyy/ScriptablePipeline.git#package
+https://github.com/GordeyChernyy/ffmpeg-clipper.git#package
