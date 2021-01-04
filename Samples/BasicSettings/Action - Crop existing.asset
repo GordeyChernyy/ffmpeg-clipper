@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f15d7289aa0ac1149a6cc05506ab698a, type: 3}
+  m_Name: Action - Crop existing
+  m_EditorClassIdentifier: 
+  args:
+  - {fileID: 11400000, guid: 170a9bd80f0b4b847828c04f9bf5c6b6, type: 2}
+  - {fileID: 11400000, guid: ef861ee57dbdc2b4bb74dd2cd6d67be4, type: 2}
+  - {fileID: 11400000, guid: 93c51a22ad084e44ea912150eadaa091, type: 2}
