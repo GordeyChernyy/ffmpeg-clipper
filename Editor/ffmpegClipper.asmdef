@@ -1,6 +1,8 @@
 {
     "name": "ffmpegClipper",
-    "references": [],
+    "references": [
+        "GUID:652c49ff07f357448b1380bb40a7a5b3"
+    ],
     "includePlatforms": [
         "Editor"
     ],
