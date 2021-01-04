@@ -9,7 +9,7 @@ namespace ffmpegClipper
         public abstract string Args { get; }
 
         [ContextMenu("PrintArgs")]
-        public void PrintArgs() {
+        public virtual void PrintArgs() {
             Debug.Log(Args);
         }
     }
