@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ScriptableVariables;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using UnityEditor;
@@ -37,8 +38,28 @@ namespace ffmpegClipper {
         public string path = "/../ScreenCaptures";
         public VideoFormat videoFormat;
 
+        public SString sFilePath;
+        public SString sFileName;
+        public SString sFileDirectory;
+        public SString sFileExtension;
+
         private string _filePath;
-        public string FilePath => _filePath;
+
+        public string FilePath {
+            get {
+                return sFilePath!=null? sFilePath.value : _filePath;
+            }
+            set {
+                if (sFilePath != null)
+                {
+                    sFilePath.value = value;
+                }
+                else
+                {
+                    _filePath = value;
+                }
+            }
+        }
 
         TrackedPathData CurData
         {
@@ -66,6 +87,7 @@ namespace ffmpegClipper {
         {
             Debug.Log("IncrementVersion");
             CurData.IncrementVersion();
+            //var value = Args;
             EditorUtility.SetDirty(this);
         }
 
@@ -101,11 +123,17 @@ namespace ffmpegClipper {
                     Debug.Log(ex.Message);
                 }
 
-                string fullPath = System.IO.Path.GetFullPath(stringPath);
+                string fileDirectory = System.IO.Path.GetFullPath(stringPath);
+                string fileName = $"{CurData.name}_v{CurData.majorVersion}.{CurData.minorVersion}";
+                string fileExtension = videoFormat.ToString();
 
-                _filePath = $"{fullPath}\\{CurData.name}_v{CurData.majorVersion}.{CurData.minorVersion}.{videoFormat.ToString()}";
+                if (sFileDirectory != null) sFileDirectory.value = fileDirectory;
+                if (sFileName != null) sFileName.value = fileName;
+                if (sFileExtension != null) sFileExtension.value = fileExtension;
 
-                return _filePath;
+                FilePath = $"{fileDirectory}\\{fileName}.{fileExtension}";
+
+                return FilePath;
             }
         }
 

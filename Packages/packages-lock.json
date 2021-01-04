@@ -14,6 +14,13 @@
       "dependencies": {},
       "hash": "7047cf063c0dbc92b73a3d5e319ab25db877b01e"
     },
+    "com.synestheticecho.scriptable-variables": {
+      "version": "https://github.com/GordeyChernyy/ScriptablePipeline.git#upm-SV",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "48a2c326976a549f07213e1ecbaf8a9ba5a73e7d"
+    },
     "com.unity.collab-proxy": {
       "version": "1.2.16",
       "depth": 0,

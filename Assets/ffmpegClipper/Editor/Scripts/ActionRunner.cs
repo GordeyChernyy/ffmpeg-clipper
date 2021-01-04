@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -20,6 +21,7 @@ namespace ffmpegClipper
             public ConsoleAppManager appManager;
 
             public string interruptKey;
+            public float delay = 0;
 
             ActionItem next;
 
@@ -28,30 +30,35 @@ namespace ffmpegClipper
 
             public void Init(ActionItem next)
             {
+                Debug.Log($"Init {action.name} next {next?.action?.name}");
                 this.next = next;
                 appManager = new ConsoleAppManager(name);
             }
 
             private void ProcessExited(object sender, EventArgs e)
             {
-                Debug.Log("ProcessExited " + name);
-                if (next != null) next.Start();
-                onProcessExited?.Invoke(this);
+                Debug.Log("ProcessExited " + action.name);
+                //if (next != null)
+                //{
+                //    //Thread.Sleep((int)(delay/1000));
+                //    next.Start();
+                //}
+                //onProcessExited?.Invoke(this);
             }
 
             public void Interrupt()
             {
-                Debug.Log("StopCapture " + name);
+                Debug.Log("StopCapture " + action.name);
                 appManager.Write(interruptKey);
-                foreach (var l in action.ClipperListeners) l.OnInterrupt();
+                //foreach (var l in action.ClipperListeners) l.OnInterrupt();
             }
 
             public void Start()
             {
-                Debug.Log("StartCapture " + name);
+                Debug.Log("StartCapture " + action.name);
                 string[] allArgs = new string[] { action.Args };
-                appManager.ExecuteAsync(allArgs);
                 appManager.ProcessExited += ProcessExited;
+                appManager.ExecuteAsync(allArgs);
                 foreach (var l in action.ClipperListeners) l.OnStart();
             }
         }
@@ -69,6 +76,7 @@ namespace ffmpegClipper
                 // todo : proper unsubscribe
                 c.onProcessExited -= OnProcessExited;
                 c.onProcessExited += OnProcessExited;
+
                 c.onProcessStarted -= OnProcessStarted;
                 c.onProcessStarted += OnProcessStarted;
                 i++;
