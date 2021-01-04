@@ -87,7 +87,10 @@ namespace ffmpegClipper {
         {
             Debug.Log("IncrementVersion");
             CurData.IncrementVersion();
-            //var value = Args;
+
+            string fileName = $"{CurData.name}_v{CurData.majorVersion}.{CurData.minorVersion}";
+            if (sFileName != null) sFileName.value = fileName;
+
             EditorUtility.SetDirty(this);
         }
 

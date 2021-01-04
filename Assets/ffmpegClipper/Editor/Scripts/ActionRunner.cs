@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 
  
@@ -28,6 +29,9 @@ namespace ffmpegClipper
             public System.Action<ActionItem> onProcessExited;
             public System.Action<ActionItem> onProcessStarted;
 
+            bool isRunningPrev = false;
+
+
             public void Init(ActionItem next)
             {
                 Debug.Log($"Init {action.name} next {next?.action?.name}");
@@ -35,33 +39,50 @@ namespace ffmpegClipper
                 appManager = new ConsoleAppManager(name);
             }
 
-            private void ProcessExited(object sender, EventArgs e)
+            private void ProcessExited()
             {
-                Debug.Log("ProcessExited " + action.name);
-                //if (next != null)
-                //{
-                //    //Thread.Sleep((int)(delay/1000));
-                //    next.Start();
-                //}
-                //onProcessExited?.Invoke(this);
+                 Debug.Log("ProcessExited ");
+                if (next != null)
+                {
+                    //Thread.Sleep((int)(delay/1000));
+                    next.Start();
+                }
+                onProcessExited?.Invoke(this);
+            }
+
+            public void Update()
+            {
+                Debug.Log(">> Update " + action.name );
+                if (isRunningPrev!= appManager.Running)
+                {
+                    Debug.Log(">> Change");
+                    if (!appManager.Running)
+                    {
+                        Debug.Log(">> Finished");
+                        ProcessExited();
+                    }
+                }
+                isRunningPrev = appManager.Running;
             }
 
             public void Interrupt()
             {
-                Debug.Log("StopCapture " + action.name);
+                Debug.Log("StopCapture " );
                 appManager.Write(interruptKey);
                 //foreach (var l in action.ClipperListeners) l.OnInterrupt();
             }
 
             public void Start()
             {
-                Debug.Log("StartCapture " + action.name);
+                Debug.Log("Start ");
                 string[] allArgs = new string[] { action.Args };
-                appManager.ProcessExited += ProcessExited;
+                //appManager.ProcessExited += ProcessExited;
                 appManager.ExecuteAsync(allArgs);
+                onProcessStarted?.Invoke(this);
                 foreach (var l in action.ClipperListeners) l.OnStart();
             }
         }
+        public bool isDebug;
 
         public List<ActionItem> actionItems = new List<ActionItem>();
 
@@ -81,12 +102,30 @@ namespace ffmpegClipper
                 c.onProcessStarted += OnProcessStarted;
                 i++;
             }
+
+            EditorApplication.update -= OnUpdate;
+            EditorApplication.update += OnUpdate;
+
             actionItems[0].Start();
         }
 
         private void OnProcessStarted(ActionItem obj)
         {
             curItemNum = actionItems.IndexOf(obj);
+        }
+
+        private void OnEnable()
+        {
+            
+        }
+
+        private void OnUpdate()
+        {
+            if (isDebug)
+            {
+                Debug.Log("Update");
+            }
+            actionItems[curItemNum].Update();
         }
 
         private void OnProcessExited(ActionItem obj)
@@ -99,14 +138,17 @@ namespace ffmpegClipper
                     foreach(var args in a.action.args)
                     {
                         if (args is IClipperListener listener) listener.OnRunnerComplete();
+                        EditorApplication.update -= OnUpdate;
                     }
                 }
             }
         }
 
+
         public void Interrupt()
         {
             actionItems[curItemNum].Interrupt();
+            //EditorApplication.update -= OnUpdate;
         }
     }
 }
