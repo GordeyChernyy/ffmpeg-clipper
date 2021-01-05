@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca23f16d08875f443aa3b0d92dd00eeb, type: 3}
-  m_Name: Format
+  m_Script: {fileID: 11500000, guid: f15d7289aa0ac1149a6cc05506ab698a, type: 3}
+  m_Name: Action - GIF Increment version
   m_EditorClassIdentifier: 
-  variables: []
-  args: -f mp4
+  args:
+  - {fileID: 11400000, guid: fa316121cc209c24dbe518516e0eaa79, type: 2}
+  - {fileID: 11400000, guid: 3647e06f5aaa7cb4194892b1868d89b5, type: 2}

@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca23f16d08875f443aa3b0d92dd00eeb, type: 3}
-  m_Name: Format
+  m_Name: GIF Palette
   m_EditorClassIdentifier: 
-  variables: []
-  args: -f mp4
+  variables:
+  - {fileID: 11400000, guid: d64665752fb138f4f99843c906db7a53, type: 2}
+  - {fileID: 11400000, guid: 8fbaa9a07bf2ab84ea3e10fdd8754ce4, type: 2}
+  - {fileID: 11400000, guid: cc393ea6113d439409e5a1fdcc5b6724, type: 2}
+  args: -vf fps={0},scale={1}:-1:flags=lanczos,palettegen {2}\palette.png

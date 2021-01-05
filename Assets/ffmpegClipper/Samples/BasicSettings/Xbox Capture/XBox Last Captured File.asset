@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: XBox Last Captured File
   m_EditorClassIdentifier: 
   folder: {fileID: 11400000, guid: 542c73f5baa97ae4196b9aec1a3724a3, type: 2}
-  file: {fileID: 0}
+  fullPathToFile: {fileID: 11400000, guid: 35bf0c2100bef4e4bac3123b83d1103e, type: 2}
   fileType: 0

@@ -13,7 +13,7 @@ namespace ffmpegClipper
     public class FileUtils : ClipperArgs
     {
         public SString folder;
-        public SString file;
+        public SString fullPathToFile;
 
         public enum FileType { latest}
 
@@ -26,9 +26,11 @@ namespace ffmpegClipper
                                                   .OrderByDescending(f => f.LastWriteTime)
                                                   .ToList();
               
+
                 sortedFiles.RemoveAll(obj=>obj.Extension!=".mp4");
                 Debug.Log(sortedFiles[0].Extension);
                 var result = sortedFiles[0];
+                fullPathToFile.value = $"\"{result.FullName}\"";
                 return $"\"{result.FullName}\"";
             }
         }

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f15d7289aa0ac1149a6cc05506ab698a, type: 3}
-  m_Name: Action - Crop XBox
+  m_Name: Action - GIF Convert To GIF
   m_EditorClassIdentifier: 
   args:
-  - {fileID: 11400000, guid: f6b106af47993f14ab735bed1f967866, type: 2}
-  - {fileID: 11400000, guid: 97b0c2c627cf9c14aa241e4463b89e79, type: 2}
-  - {fileID: 11400000, guid: ef861ee57dbdc2b4bb74dd2cd6d67be4, type: 2}
-  - {fileID: 11400000, guid: 3647e06f5aaa7cb4194892b1868d89b5, type: 2}
+  - {fileID: 11400000, guid: 34c9e0440e9d05944a348c31cd1df766, type: 2}
+  - {fileID: 11400000, guid: 4cd367e466a1088408868ca68d420635, type: 2}
+  - {fileID: 11400000, guid: 14a49e02164a4cf4f97217df430fc7b2, type: 2}
+  - {fileID: 11400000, guid: ad13a6ddadbc2614f97b1bc663d8734c, type: 2}

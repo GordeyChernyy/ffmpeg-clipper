@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca23f16d08875f443aa3b0d92dd00eeb, type: 3}
   m_Name: Audio
   m_EditorClassIdentifier: 
+  variables: []
   args: dshow -i audio="Stereo Mix (Realtek High Definition Audio)" -acodec libmp3lame

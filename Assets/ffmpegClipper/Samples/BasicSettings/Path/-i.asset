@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: -i
   m_EditorClassIdentifier: 
   variables: []
-  args: 
+  args: -i

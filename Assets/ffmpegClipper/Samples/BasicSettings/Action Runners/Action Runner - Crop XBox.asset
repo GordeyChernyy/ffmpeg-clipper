@@ -18,3 +18,7 @@ MonoBehaviour:
     action: {fileID: 11400000, guid: 9ac7d8bcc4ed7f3478268b48f882d2aa, type: 2}
     interruptKey: q
     delay: 1
+  - name: cmd
+    action: {fileID: 11400000, guid: 3f81392aed77eaa4bb0538de217979bc, type: 2}
+    interruptKey: q
+    delay: 1

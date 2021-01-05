@@ -46,10 +46,10 @@ namespace ffmpegClipper
             clipper.Start();
         }
 
-        [MenuItem("ffmpegClipper/Stop")]
+        [MenuItem("ffmpegClipper/Interrupt")]
         private static void Stop()
         {
-            if (clipper != null) Debug.Log($"Stop : {clipper.name}");
+            if (clipper != null) Debug.Log($"Interrupt : {clipper.name}");
             clipper.Interrupt();
         }
 
