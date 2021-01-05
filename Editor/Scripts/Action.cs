@@ -37,6 +37,11 @@ namespace ffmpegClipper
             }
         }
 
+        [ContextMenu("DebugArgs")]
+        public void PrintArgs()
+        {
+            Debug.Log(Args);
+        }
 
         public List<IClipperListener> ClipperListeners
         {

@@ -22,7 +22,6 @@ namespace ffmpegClipper
             public ConsoleAppManager appManager;
 
             public string interruptKey;
-            public float delay = 0;
 
             ActionItem next;
 
@@ -37,6 +36,13 @@ namespace ffmpegClipper
                 Debug.Log($"Init {action.name} next {next?.action?.name}");
                 this.next = next;
                 appManager = new ConsoleAppManager(name);
+                appManager.ErrorTextReceived += ErrorTextReceived;
+                appManager.StandartTextReceived += ErrorTextReceived;
+            }
+
+            private void ErrorTextReceived(object sender, string e)
+            {
+                Debug.Log(e);
             }
 
             private void ProcessExited()
@@ -44,7 +50,6 @@ namespace ffmpegClipper
                  Debug.Log("ProcessExited ");
                 if (next != null)
                 {
-                    //Thread.Sleep((int)(delay/1000));
                     next.Start();
                 }
                 onProcessExited?.Invoke(this);
@@ -52,7 +57,7 @@ namespace ffmpegClipper
 
             public void Update()
             {
-                Debug.Log(">> Update " + action.name );
+               // Debug.Log(">> Update " + action.name );
                 if (isRunningPrev!= appManager.Running)
                 {
                     Debug.Log(">> Change");

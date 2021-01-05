@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca23f16d08875f443aa3b0d92dd00eeb, type: 3}
-  m_Name: Format
+  m_Script: {fileID: 11500000, guid: f15d7289aa0ac1149a6cc05506ab698a, type: 3}
+  m_Name: Action - GIF Remove Palette
   m_EditorClassIdentifier: 
-  variables: []
-  args: -f mp4
+  args:
+  - {fileID: 11400000, guid: de095c99f4062a8428d1d543f9cd6160, type: 2}

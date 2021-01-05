@@ -95,7 +95,6 @@ namespace ffmpegClipper
             {
                 if (this.context != null)
                 {
-                    UnityEngine.Debug.Log(e);
                     this.context.Post(delegate { handler(this, e); }, null);
                 }
                 else
@@ -122,7 +121,6 @@ namespace ffmpegClipper
             {
                 if (this.context != null)
                 {
-                    UnityEngine.Debug.Log(e);
                     this.context.Post(delegate { handler(this, e); }, null);
                 }
                 else

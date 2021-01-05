@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca23f16d08875f443aa3b0d92dd00eeb, type: 3}
-  m_Name: Format
+  m_Name: CMD Close When Done
   m_EditorClassIdentifier: 
   variables: []
-  args: -f mp4
+  args: /c

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca23f16d08875f443aa3b0d92dd00eeb, type: 3}
   m_Name: Divisible by Two
   m_EditorClassIdentifier: 
+  variables: []
   args: -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2"
