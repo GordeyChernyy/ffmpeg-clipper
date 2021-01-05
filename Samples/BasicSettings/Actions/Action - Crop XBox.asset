@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f15d7289aa0ac1149a6cc05506ab698a, type: 3}
-  m_Name: Action - Crop captured
+  m_Name: Action - Crop XBox
   m_EditorClassIdentifier: 
   args:
   - {fileID: 11400000, guid: 170a9bd80f0b4b847828c04f9bf5c6b6, type: 2}
