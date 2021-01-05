@@ -61,3 +61,4 @@ crashlytics-build.properties
 /ScreenCaptures/
 /Assets/ffmpegClipper/ffmpegClipper.asset*
 /Assets/ffmpegClipper/node_modules*
+/Assets/ffmpegClipper/package-lock.json*
