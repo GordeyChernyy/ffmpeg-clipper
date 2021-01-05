@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 using UnityEditor;
@@ -74,7 +75,13 @@ namespace ffmpegClipper
             if (clipper != null) return;
 
             clipper = (Clipper)ScriptableObject.CreateInstance(typeof(Clipper));
-            AssetDatabase.CreateAsset(clipper, "Assets/ffmpegClipper/ffmpegClipper.asset");
+
+            string clipperPath = "Assets/ffmpegClipper";
+            if (!Directory.Exists(clipperPath))
+            {
+                Directory.CreateDirectory(clipperPath);
+            }
+            AssetDatabase.CreateAsset(clipper, $"{clipperPath}/ffmpegClipper.asset");
             Debug.Log($"create new settings : {clipper.name}");
         }
     }
