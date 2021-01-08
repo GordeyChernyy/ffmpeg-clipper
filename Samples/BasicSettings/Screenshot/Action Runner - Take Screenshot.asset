@@ -10,13 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221f9c7b30776ba47b587e2113420b88, type: 3}
-  m_Name: Action Runner - Capture - Crop
+  m_Name: Action Runners
   m_EditorClassIdentifier: 
   isDebug: 0
-  actionItems:
-  - name: ffmpeg
-    action: {fileID: 11400000, guid: aa3d7e14bf07d8241acbefa93d86572d, type: 2}
-    interruptKey: y
-  - name: ffmpeg
-    action: {fileID: 11400000, guid: 9ac7d8bcc4ed7f3478268b48f882d2aa, type: 2}
-    interruptKey: q
+  actionItems: []
