@@ -7,7 +7,7 @@ namespace ffmpegClipper
     [CreateAssetMenu(menuName = "ffmpeg Clipper/Window Settings")]
     class Crop : ClipperArgs
     {
-        public enum Window { Game, Scene, Project}
+        public enum Window { Game, Scene, Project, Inspector}
 
 
         public Vector2 posOffset;
@@ -23,6 +23,7 @@ namespace ffmpegClipper
                 if (window == Window.Game) w = "UnityEditor.GameView,UnityEditor";
                 if (window == Window.Scene) w = "UnityEditor.SceneView,UnityEditor";
                 if (window == Window.Project) w = "UnityEditor.ProjectBrowser,UnityEditor";
+                if (window == Window.Inspector) w = "UnityEditor.InspectorWindow,UnityEditor";
 
                 System.Type T = System.Type.GetType(w);
                 EditorWindow gameview = EditorWindow.GetWindow(T);
