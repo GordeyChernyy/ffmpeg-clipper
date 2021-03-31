@@ -109,6 +109,12 @@ namespace ffmpegClipper {
             IncrementVersion();
         }
 
+        [ContextMenu("Open Folder")]
+        public void OpenFolder()
+        {
+            Application.OpenURL(Application.dataPath + path);
+        }
+
         public override string Args {
             get
             {
