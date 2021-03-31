@@ -16,7 +16,7 @@ namespace ffmpegClipper
         [System.Serializable]
         public class ActionItem
         {
-            public string name;
+            public string command;
 
             public Action action;
             public ConsoleAppManager appManager;
@@ -30,12 +30,11 @@ namespace ffmpegClipper
 
             bool isRunningPrev = false;
 
-
             public void Init(ActionItem next)
             {
                 Debug.Log($"Init {action.name} next {next?.action?.name}");
                 this.next = next;
-                appManager = new ConsoleAppManager(name);
+                appManager = new ConsoleAppManager(command);
                 appManager.ErrorTextReceived += ErrorTextReceived;
                 appManager.StandartTextReceived += ErrorTextReceived;
             }
@@ -121,7 +120,7 @@ namespace ffmpegClipper
 
         private void OnEnable()
         {
-            
+
         }
 
         private void OnUpdate()

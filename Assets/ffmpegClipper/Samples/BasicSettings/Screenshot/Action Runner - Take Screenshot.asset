@@ -10,7 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221f9c7b30776ba47b587e2113420b88, type: 3}
-  m_Name: Action Runners
+  m_Name: Action Runner - Take Screenshot
   m_EditorClassIdentifier: 
   isDebug: 0
-  actionItems: []
+  actionItems:
+  - command: ffmpeg
+    action: {fileID: 11400000, guid: a0aed00f60908d04cbdad6bd4e338d5c, type: 2}
+    interruptKey: q
+  - command: cmd
+    action: {fileID: 11400000, guid: 2f616b7a9b0570447a5fcefa59657e92, type: 2}
+    interruptKey: q
+  - command: cmd
+    action: {fileID: 11400000, guid: 480023240d1d5ce4bb556f8e30219f31, type: 2}
+    interruptKey: q

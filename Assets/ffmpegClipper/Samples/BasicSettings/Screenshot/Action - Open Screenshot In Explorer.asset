@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f15d7289aa0ac1149a6cc05506ab698a, type: 3}
-  m_Name: Action - Open Explorer
+  m_Name: Action - Open Screenshot In Explorer
   m_EditorClassIdentifier: 
   args:
   - {fileID: 11400000, guid: 4720b32f259eda640af2028a188e05db, type: 2}

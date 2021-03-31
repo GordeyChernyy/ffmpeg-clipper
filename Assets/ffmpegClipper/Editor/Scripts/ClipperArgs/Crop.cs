@@ -27,6 +27,7 @@ namespace ffmpegClipper
 
                 System.Type T = System.Type.GetType(w);
                 EditorWindow gameview = EditorWindow.GetWindow(T);
+
                 windowRect = gameview.position;
 
                 string args = "";
