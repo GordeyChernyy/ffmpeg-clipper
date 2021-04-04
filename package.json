@@ -1,23 +1,23 @@
 {
-  "name": "com.synestheticecho.ffmpeg-clipper",
-  "version": "0.0.8",
-  "displayName": "ffmpeg Clipper",
-  "description": "2019.4",
-  "dependencies": {},
-  "keywords": [
-    "video",
-    "capture",
-    "image"
-  ],
-  "author": {
-    "name": "Synesthetic Echo LLC",
-    "email": "hello@synestheticecho.com",
-    "url": "http://www.synestheticecho.com"
-  },
-  "samples": [
-    {
-      "displayName": "Basic Settings",
-      "path": "Samples~/BasicSettings"
-    }
-  ]
+	"name": "com.synestheticecho.ffmpeg-clipper",
+	"version": "0.0.9",
+	"displayName": "ffmpeg Clipper",
+	"description": "2019.4",
+	"dependencies": {},
+	"keywords": [
+		"video",
+		"capture",
+		"image"
+	],
+	"author": {
+		"name": "Synesthetic Echo LLC",
+		"email": "hello@synestheticecho.com",
+		"url": "http://www.synestheticecho.com"
+	},
+	"samples": [
+		{
+			"displayName": "Basic Settings",
+			"path": "Samples~/BasicSettings"
+		}
+	]
 }
